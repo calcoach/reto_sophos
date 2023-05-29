@@ -492,7 +492,7 @@ export const links = [
         icon: <IoMdContacts />,
       },
       {
-        name: 'customers',
+        name: 'Item',
         icon: <RiContactsLine />,
       },
     ],
@@ -501,19 +501,19 @@ export const links = [
     title: 'Apps',
     links: [
       {
-        name: 'calendar',
+        name: 'Item1',
         icon: <AiOutlineCalendar />,
       },
       {
-        name: 'kanban',
+        name: 'Item2',
         icon: <BsKanban />,
       },
       {
-        name: 'editor',
+        name: 'Item3',
         icon: <FiEdit />,
       },
       {
-        name: 'color-picker',
+        name: 'Item4',
         icon: <BiColorFill />,
       },
     ],
@@ -522,36 +522,36 @@ export const links = [
     title: 'Charts',
     links: [
       {
-        name: 'line',
+        name: 'Item5',
         icon: <AiOutlineStock />,
       },
       {
-        name: 'area',
+        name: 'Item6',
         icon: <AiOutlineAreaChart />,
       },
 
       {
-        name: 'bar',
+        name: 'Item7',
         icon: <AiOutlineBarChart />,
       },
       {
-        name: 'pie',
+        name: 'Item8',
         icon: <FiPieChart />,
       },
       {
-        name: 'financial',
+        name: 'Item9',
         icon: <RiStockLine />,
       },
       {
-        name: 'color-mapping',
+        name: 'Item10',
         icon: <BsBarChart />,
       },
       {
-        name: 'pyramid',
+        name: 'Item11',
         icon: <GiLouvrePyramid />,
       },
       {
-        name: 'stacked',
+        name: 'Item12',
         icon: <AiOutlineBarChart />,
       },
     ],

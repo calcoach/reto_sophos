@@ -27,12 +27,12 @@ const Formulario = (props) => {
 
     // Realiza la solicitud POST a la API para guardar los cambios
 
-    fetch("http://localhost:8080/api/alumnos", {
+    fetch("https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/alumnos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
         },
         body: JSON.stringify(formData)
       })
@@ -57,7 +57,7 @@ const Formulario = (props) => {
     <form className="formulario" onSubmit={handleSubmit}>
       <p1 align="center" className="title-form"> Crear Alumno</p1>
       <div className="form-group">
-        <label className="form-label">First Name:</label>
+        <label className="form-label">Nombre:</label>
         <input
           className="form-input"
           type="text"
@@ -66,7 +66,7 @@ const Formulario = (props) => {
         />
       </div>
       <div className="form-group">
-        <label className="form-label">Last Name:</label>
+        <label className="form-label">Apellido:</label>
         <input
           className="form-input"
           type="text"

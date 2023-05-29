@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
-import FormularioAlumno from "../components/Forms/CrearAlumno";
+import FormularioProfesor from "../components/Forms/CrearProfesor";
 
 const Profesores = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTIxMzYwNywic3ViIjoiJGFyZ29uMmlkJHY9MTkkbT0xMDI0LHQ9MSxwPTEkcWgrbkFUbHNiemNGcEJTMTRGOWl6QSRVOXIxcHQxdmtSYXordkR2YUFxUk5LNkplQ21mSERkbHRhT0NLK2huSDVrIiwiaXNzIjoiRGV2X21vZGVsb19yb2xzIiwiZXhwIjoxNjg1ODE4NDA3fQ.nmXmSbMxYdNwi6yWEpHrdGMF7SWNZ972B-TVNAeIILo";
-
+     
     fetch(
-      "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/profesores",
+      `${process.env.REACT_APP_URL_API}/api/profesores`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: "Bearer " + token
+          Authorization: "Bearer " + `${process.env.REACT_APP_TOKEN}`
         }
       }
     )
@@ -27,21 +25,42 @@ const Profesores = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  
+  const handleChildEvent = (data) => {
+    // Maneja el evento recibido del componente hijo
+    console.log("Evento recibido:", data);
+    
+
+  fetch(
+    `${process.env.REACT_APP_URL_API}/api/profesores`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN
+      }
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => setTableData(data))
+    .catch((error) => console.log(error));
+   
+    console.log("Actualizacion: ");
+  };
+
   const handleDelete = (id) => {
     const updatedData = tableData.filter((item) => item.profesor_id !== id);
     setTableData(updatedData);
 
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
-
     fetch(
-      'https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/profesores/'+id,
+      `${process.env.REACT_APP_URL_API}/api/profesores/`+id,
       {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN
         }
       }
     )
@@ -127,15 +146,17 @@ const Profesores = () => {
 
   return (
     <div>
+      <FormularioProfesor onEvent={handleChildEvent}/>
+      <br></br> 
       <table className="editable-table">
       <thead>
         <tr>
           <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Max Title</th>
-          <th>Experience Years</th>
-          <th>Actions</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Maximo titulo</th>
+          <th>Años de experiencia</th>
+          <th>Opciones</th>
         </tr>
       </thead>
       <tbody>

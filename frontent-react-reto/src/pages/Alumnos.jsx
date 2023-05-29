@@ -7,17 +7,15 @@ function Alumnos() {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
-
+    
     fetch(
-      "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/alumnos",
+      `${process.env.REACT_APP_URL_API}/api/alumnos`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: "Bearer " + token
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
         }
       }
     )
@@ -30,17 +28,16 @@ function Alumnos() {
   const handleChildEvent = (data) => {
     // Maneja el evento recibido del componente hijo
     console.log("Evento recibido:", data);
-    const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
+    
 
   fetch(
-    "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/alumnos",
+    `${process.env.REACT_APP_URL_API}/api/alumnos`,
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: "Bearer " + token
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN
       }
     }
   )
@@ -58,17 +55,14 @@ function Alumnos() {
     const updatedData = tableData.filter((item) => item.alumno_id !== id);
     setTableData(updatedData);
 
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
-
     fetch(
-      'https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/alumnos/'+id,
+      `${process.env.REACT_APP_URL_API}/api/alumnos`+id,
       {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
         }
       }
     )
@@ -141,18 +135,16 @@ function Alumnos() {
 
     // Obtén los datos del item modificado
     const modifiedItem = updatedData.find((item) => item.alumno_id === id);
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
-
+    
     // Realiza la solicitud POST a la API para guardar los cambios
     fetch(
-      "http://localhost:8080/api/alumnos",
+      `${process.env.REACT_APP_URL_API}/api/alumnos`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}` // Utiliza el token definido anteriormente
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}` // Utiliza el token definido anteriormente
         },
         body: JSON.stringify(modifiedItem)
       }
@@ -173,11 +165,11 @@ function Alumnos() {
       <thead>
         <tr>
           <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
           <th>Facultad</th>
           <th>Creditos Inscritos</th>
-          <th>Actions</th>
+          <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
