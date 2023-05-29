@@ -5,6 +5,8 @@ import FormularioAlumno from '../components/Forms/CrearAlumno';
 function Alumnos() {
   
   const [tableData, setTableData] = useState([]);
+  const [idShowAlumno, setidShowAlumno] = useState([]);
+  const [viewAlumno, setViewAlumno] = useState([]);
 
   useEffect(() => {
     
@@ -159,6 +161,7 @@ function Alumnos() {
 
   return (
     <div>
+      
       <FormularioAlumno onEvent={handleChildEvent}/>
       <br></br> 
       <table className="editable-table">

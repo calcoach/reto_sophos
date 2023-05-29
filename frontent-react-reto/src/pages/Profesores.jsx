@@ -122,17 +122,15 @@ const Profesores = () => {
     setTableData(updatedData);
 
     const modifiedItem = updatedData.find((item) => item.profesor_id === id);
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTIxMzYwNywic3ViIjoiJGFyZ29uMmlkJHY9MTkkbT0xMDI0LHQ9MSxwPTEkcWgrbkFUbHNiemNGcEJTMTRGOWl6QSRVOXIxcHQxdmtSYXordkR2YUFxUk5LNkplQ21mSERkbHRhT0NLK2huSDVrIiwiaXNzIjoiRGV2X21vZGVsb19yb2xzIiwiZXhwIjoxNjg1ODE4NDA3fQ.nmXmSbMxYdNwi6yWEpHrdGMF7SWNZ972B-TVNAeIILo";
-
+    
     fetch(
-      "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/profesores",
+      `${process.env.REACT_APP_URL_API}/api/profesores/`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
         },
         body: JSON.stringify(modifiedItem)
       }

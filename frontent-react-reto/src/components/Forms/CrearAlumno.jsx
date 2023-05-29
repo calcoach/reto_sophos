@@ -22,12 +22,9 @@ const Formulario = (props) => {
 
       console.log(formData);
 
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
-
     // Realiza la solicitud POST a la API para guardar los cambios
 
-    fetch("https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/alumnos", {
+    fetch(`${process.env.REACT_APP_URL_API}/api/alumnos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +52,7 @@ const Formulario = (props) => {
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
-      <p1 align="center" className="title-form"> Crear Alumno</p1>
+      <p align="center" className="title-form"> Crear Alumno</p>
       <div className="form-group">
         <label className="form-label">Nombre:</label>
         <input
