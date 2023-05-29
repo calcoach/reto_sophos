@@ -1,0 +1,128 @@
+@import url('https://cdn.syncfusion.com/ej2/material.css');
+
+.sidebar {
+  box-shadow: rgba(56, 136, 3, 0.11) 0px 7px 30px 0px;
+}
+.nav-item,
+.navbar {
+  z-index: 10000;
+}
+@media  screen and (max-width:800px) {
+  .sidebar{
+    z-index: 10000000;
+  }
+}
+
+.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
+  z-index: 1000000 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* color-picker style  */
+
+ #preview {
+  background: transparent
+    url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
+    no-repeat;
+  display: inline-block;
+  height: 80px;
+  margin: 10px 0;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: #008000;
+}
+
+.e-input-group:not(.e-float-icon-left), .e-input-group.e-success:not(.e-float-icon-left), .e-input-group.e-warning:not(.e-float-icon-left), .e-input-group.e-error:not(.e-float-icon-left), .e-input-group.e-control-wrapper:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left){
+  border: none;
+}
+
+.ml-3 {
+  background-color: #e0241c;
+  margin-left: 0%;
+}
+
+.title.UnitT {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Poppins;
+  height: 10px;
+}
+.title.corporation {
+  color: #fff;
+  height: 20px;
+}
+
+.title {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-left: 75px;
+  color: #fff;
+  font-size: 16px;
+  font-family: Poppins;
+  height: 67px;
+  width: 120px;
+  padding-top: 40px;
+  margin-bottom: 0;
+}
+
+.editable-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.editable-table th,
+.editable-table td {
+  padding: 10px;
+  border: 1px solid #34a853;
+}
+
+.editable-table th {
+  background-color: #f2f2f2;
+}
+
+.editable-table input {
+  width: 100%;
+  padding: 5px;
+}
+
+.edit-button,
+.save-button {
+  padding: 10px 10px;
+  padding-left: 15px;
+  border: none;
+  background-color: #4285f4;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-button {
+  padding: 5;
+  background-color: #34a853;
+}
+
+
+.edit-button:hover,
+.save-button:hover {
+  padding: 5px;
+  background-color: #3367d6;
+}
+
+.delete-button {
+  padding: 5px;
+  background-color: #dd102c;
+}
+
+
+
