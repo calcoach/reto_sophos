@@ -48,7 +48,7 @@ function Cursos() {
   useEffect(() => {
     const token = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E';
 
-    fetch('http://localhost:8080/api/cursos', {
+    fetch('https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/cursos', {
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
