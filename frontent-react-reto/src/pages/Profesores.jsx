@@ -6,7 +6,7 @@ const Profesores = () => {
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
+      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTIxMzYwNywic3ViIjoiJGFyZ29uMmlkJHY9MTkkbT0xMDI0LHQ9MSxwPTEkcWgrbkFUbHNiemNGcEJTMTRGOWl6QSRVOXIxcHQxdmtSYXordkR2YUFxUk5LNkplQ21mSERkbHRhT0NLK2huSDVrIiwiaXNzIjoiRGV2X21vZGVsb19yb2xzIiwiZXhwIjoxNjg1ODE4NDA3fQ.nmXmSbMxYdNwi6yWEpHrdGMF7SWNZ972B-TVNAeIILo";
 
     fetch(
       "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/profesores",
@@ -20,7 +20,10 @@ const Profesores = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => setTableData(data))
+      .then((data) => {
+        setTableData(data);
+        console.log(data);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -101,7 +104,7 @@ const Profesores = () => {
 
     const modifiedItem = updatedData.find((item) => item.profesor_id === id);
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnZpbGxhQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0ODQ4NDg1LCJzdWIiOiIkYXJnb24yaWQkdj0xOSRtPTEwMjQsdD0xLHA9MSQ0NTNFVUVPUHBGclYwQWQ2UXdpclJBJDNGVU10d3pGcDNmamdxTGhqVC9wcXk4a05vK0VMUTRWTFh5ck5jdFJwYnciLCJpc3MiOiJEZXZfbW9kZWxvX3JvbHMiLCJleHAiOjE2ODU0NTMyODV9.b6MbusjYOlsL1by9Jr8_6Y0w4ZLsfJqhYFcriJPO34E";
+      "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqdWFuLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTIxMzYwNywic3ViIjoiJGFyZ29uMmlkJHY9MTkkbT0xMDI0LHQ9MSxwPTEkcWgrbkFUbHNiemNGcEJTMTRGOWl6QSRVOXIxcHQxdmtSYXordkR2YUFxUk5LNkplQ21mSERkbHRhT0NLK2huSDVrIiwiaXNzIjoiRGV2X21vZGVsb19yb2xzIiwiZXhwIjoxNjg1ODE4NDA3fQ.nmXmSbMxYdNwi6yWEpHrdGMF7SWNZ972B-TVNAeIILo";
 
     fetch(
       "https://backendretosophos.kindmushroom-705dfbe6.centralus.azurecontainerapps.io/api/profesores",
